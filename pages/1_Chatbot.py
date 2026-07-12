@@ -105,8 +105,9 @@ Knowledge Base using Retrieval-Augmented Generation (RAG).
 
     if st.button("🚪 Logout"):
 
-    st.session_state.logged_in = False
-    st.session_state.messages = []
+     st.session_state.logged_in = False
+     st.session_state.messages = []
+     st.rerun()
 
     st.success("Logged out successfully.")
 
