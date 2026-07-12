@@ -104,15 +104,13 @@ Knowledge Base using Retrieval-Augmented Generation (RAG).
     st.markdown("---")
 
     if st.button("🚪 Logout"):
-
-     st.session_state.logged_in = False
-     st.session_state.messages = []
-     st.rerun()
+        st.session_state.logged_in = False
+        st.session_state.messages = []
+        st.switch_page("app.py")
 
     st.success("Logged out successfully.")
 
     st.switch_page("app.py")
-
 # ----------------------------------------------------
 # MAIN PAGE
 # ----------------------------------------------------
