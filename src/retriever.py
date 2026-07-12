@@ -1,31 +1,37 @@
 """
 retriever.py
 
-Loads the Chroma Vector Database and creates a Retriever.
+Loads the Chroma Vector Database.
+If it doesn't exist, it creates it automatically.
 """
+
+import os
 
 from langchain_chroma import Chroma
 
 from src.embeddings import get_embedding_model
+from src.vectordb import create_vector_db
 
 
 def get_retriever():
 
-    # Load the embedding model
     embedding_model = get_embedding_model()
 
-    # Load the existing Chroma Vector Database
+    # If database doesn't exist, create it
+    if not os.path.exists("chroma_db"):
+
+        print("Creating Chroma Vector Database...")
+
+        create_vector_db()
+
     vector_db = Chroma(
         persist_directory="chroma_db",
         embedding_function=embedding_model,
     )
 
-    # Create Retriever
     retriever = vector_db.as_retriever(
         search_type="similarity",
-        search_kwargs={
-            "k": 3
-        }
+        search_kwargs={"k": 3},
     )
 
     return retriever
@@ -35,22 +41,6 @@ if __name__ == "__main__":
 
     retriever = get_retriever()
 
-    query = "What is the RERA number?"
+    docs = retriever.invoke("What is the RERA number?")
 
-    docs = retriever.invoke(query)
-
-    print(f"Retrieved {len(docs)} documents.\n")
-
-    for i, doc in enumerate(docs, start=1):
-
-        print("=" * 60)
-        print(f"Result {i}")
-        print("=" * 60)
-
-        print("Source :", doc.metadata.get("source"))
-        print("Page   :", doc.metadata.get("page"))
-
-        print("\nContent:\n")
-        print(doc.page_content[:500])
-
-        print("\n")
+    print(f"Retrieved {len(docs)} documents.")
