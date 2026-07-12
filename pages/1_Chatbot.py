@@ -57,11 +57,16 @@ This AI Assistant answers questions from a Real Estate Knowledge Base.
 
     st.write("### Example Questions")
 
-    st.write("• What is the RERA number?")
-    st.write("• Who is the developer?")
-    st.write("• What is the possession date?")
-    st.write("• What is the price?")
-    st.write("• What amenities are available?")
+    st.write("• Summarize the Skyline Horizon Towers project.")
+    st.write("• Tell me about Skyline Horizon Towers.")
+    st.write("• What types of apartments are available in Skyline Horizon Towers?")
+    st.write("• What amenities are available in Skyline Horizon Towers?")
+    st.write("• Where is Skyline Horizon Towers located?")
+    st.write("• Give me an overview of Horizon Business Park.")
+    st.write("• Tell me about Horizon Business Park.")
+    st.write("• What commercial spaces are available in Horizon Business Park?")
+    st.write("• What facilities are available in Horizon Business Park?")
+    st.write("• Summarize this project.")
 
     st.markdown("---")
 

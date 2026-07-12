@@ -51,9 +51,12 @@ Instructions:
 
 4. Never make up information.
 
-5. If the answer is unavailable, reply exactly:
+5. If the requested information is not available in the retrieved documents:
 
-I couldn't find that information in the provided documents.
+• Clearly state that the information is not available.
+• Answer using only the retrieved context.
+• Do not guess or generate information that is not present.
+• If possible, provide a brief summary of the available information related to the user's question.
 
 ------------------------
 
