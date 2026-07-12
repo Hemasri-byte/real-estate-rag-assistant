@@ -6,6 +6,7 @@ Creates and returns the Gemini Embedding Model.
 
 import os
 
+import streamlit as st
 from dotenv import load_dotenv
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
@@ -13,11 +14,12 @@ load_dotenv()
 
 
 def get_embedding_model():
-    """
-    Returns the Gemini Embedding Model.
-    """
 
     api_key = os.getenv("GOOGLE_API_KEY")
+
+    if not api_key:
+
+        api_key = st.secrets["GOOGLE_API_KEY"]
 
     embedding_model = GoogleGenerativeAIEmbeddings(
         model="models/gemini-embedding-001",

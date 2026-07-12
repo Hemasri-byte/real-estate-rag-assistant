@@ -1,0 +1,17 @@
+streamlit
+python-dotenv
+
+langchain
+langchain-core
+langchain-community
+langchain-google-genai
+
+google-generativeai
+
+chromadb
+
+pypdf
+python-docx
+beautifulsoup4
+lxml
+tiktoken
